@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lixiang.dailypic2_android.view.fragment.MeFragment">
+    <RelativeLayout
+        android:id="@+id/me_header"
+        android:layout_width="match_parent"
+        android:layout_height="189dp"
+        android:background="@drawable/me_head_pic">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="52dp"
+            android:layout_marginStart="23dp" />
+        <ImageView
+            android:id="@+id/to_computer"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="58dp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/avatar"
+            android:layout_toEndOf="@+id/avatar"
+            android:layout_marginLeft="22dp"
+            android:ellipsize="marquee"
+            android:layout_marginRight="86dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:text="@string/test_textview"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            android:id="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/avatar"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_toLeftOf="@+id/to_computer"
+            android:layout_marginRight="22dp"
+            android:text="@string/test_textview"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:textSize="12dp"
+            android:textColor="#c6b38c"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_below="@+id/me_header"
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="73dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="26dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/delivered" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="26dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/delivered" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="26dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/delivered" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/delivered" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/me_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/me_header">
+
+    </ListView>
+</RelativeLayout>

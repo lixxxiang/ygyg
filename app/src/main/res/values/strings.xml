@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">遥感易购</string>
+    <string name="homepage">首页</string>
+    <string name="classify">分类</string>
+    <string name="special">专题</string>
+    <string name="me">我的</string>
+    <string name="search_text">搜索卫星数据，共有5大类产品</string>
+    <string name="delivered">已交付</string>
+    <string name="obligation">待付款</string>
+    <string name="check_pending">待审核</string>
+    <string name="in_production">生产中</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="test_textview">字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段字段</string>
+    <string name="like_text">猜你喜欢</string>
+    <string name="daily_pic">每日一图</string>
+
+</resources>

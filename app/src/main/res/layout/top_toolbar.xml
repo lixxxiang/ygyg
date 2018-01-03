@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="51dp"
+    android:alpha="0.8"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:id="@+id/scan_btn"
+        android:layout_width="52dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/scan_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/scan_btn"
+        android:layout_toStartOf="@+id/notification_btn">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10.5dp"
+            android:layout_marginTop="10.5dp"
+            android:background="@drawable/search_background" />
+
+        <RelativeLayout
+            android:layout_width="184dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/search_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/search_icon"
+                android:text="@string/search_text"
+                android:textColor="#9b9b9b"
+                android:textSize="12dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/notification_btn"
+        android:layout_width="52dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true">
+
+    </RelativeLayout>
+</RelativeLayout>
