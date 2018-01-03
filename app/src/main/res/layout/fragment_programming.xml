@@ -15,7 +15,8 @@
         android:id="@+id/programming_header"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:background="@color/colorPrimary">
+        android:background="#000000"
+        android:alpha="0.8">
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="100dp"
