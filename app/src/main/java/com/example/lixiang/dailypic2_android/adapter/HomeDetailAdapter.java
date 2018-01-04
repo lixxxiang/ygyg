@@ -1,5 +1,6 @@
 package com.example.lixiang.dailypic2_android.adapter;
 
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lixiang.dailypic2_android.R;
+import com.example.lixiang.dailypic2_android.model.entity.HomePageUnits;
+
+import java.util.ArrayList;
 
 
 /**
@@ -16,6 +20,11 @@ import com.example.lixiang.dailypic2_android.R;
 
 public class HomeDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private HomePageUnits.DataBean unitContent = new HomePageUnits.DataBean();
+
+    public HomeDetailAdapter(HomePageUnits.DataBean unitContent) {
+        this.unitContent = unitContent;
+    }
 
 
 
@@ -28,13 +37,17 @@ public class HomeDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+        System.out.println("fuck title" + unitContent.getPieces().get(0).getPosTitle());
+        TypeScrollViewHolder typeScrollViewHolder = (TypeScrollViewHolder) holder;
+        typeScrollViewHolder.scrollTitle.setText(unitContent.getPieces().get(position).getPosTitle());
+        typeScrollViewHolder.scrollDetail.setText(unitContent.getPieces().get(position).getPosDescription());
+        typeScrollViewHolder.scrollPic.setImageURI(Uri.parse(unitContent.getPieces().get(position).getImageUrl()));
     }
 
 
     @Override
     public int getItemCount() {
-        return 4;
+        return unitContent.getPieces().size();
     }
 
 

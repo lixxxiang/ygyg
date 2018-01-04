@@ -11,17 +11,51 @@ import android.view.ViewGroup
 import com.example.lixiang.dailypic2_android.view.base.BaseMainFragment
 import com.example.lixiang.dailypic2_android.adapter.HomeAdapter
 import com.example.lixiang.dailypic2_android.R
+import com.example.lixiang.dailypic2_android.di.components.DaggerHomeComponent
+import com.example.lixiang.dailypic2_android.di.modules.HomeModule
+import com.example.lixiang.dailypic2_android.model.entity.HomePageSlide
+import com.example.lixiang.dailypic2_android.model.entity.HomePageUnits
+import com.example.lixiang.dailypic2_android.presenter.HomeContract
+import com.example.lixiang.dailypic2_android.presenter.HomePresenter
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.util.ArrayList
+import javax.inject.Inject
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class HomeFragment : BaseMainFragment() {
+class HomeFragment : BaseMainFragment(), HomeContract.View {
 
-    var bannerContent : MutableList<String> = mutableListOf()
+    private var bannerContent : MutableList<HomePageSlide.DataBean> = mutableListOf()
+    private var unitContent : MutableList<HomePageUnits.DataBean> = mutableListOf()
 
-    var mAdapter = HomeAdapter(bannerContent)
+    var mAdapter = HomeAdapter(bannerContent as ArrayList<HomePageSlide.DataBean>?, unitContent as ArrayList<HomePageUnits.DataBean>?)
+//        var mAdapter = HomeAdapter(bannerContent as ArrayList<HomePageSlide.DataBean>?)
+
+    @Inject lateinit var presenter: HomePresenter
+
+    override fun getUnitSuccess(content: MutableList<HomePageUnits.DataBean>) {
+        unitContent = content
+        println("fuck it " + unitContent[0].description)
+        presenter.getBanner()
+//        mAdapter = HomeAdapter(bannerContent as ArrayList<HomePageSlide.DataBean>?, unitContent as ArrayList<HomePageUnits.DataBean>?)
+//        recyclerView_home.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+//        recyclerView_home.adapter = mAdapter
+    }
+
+    override fun getBannerSuccess(content: MutableList<HomePageSlide.DataBean>) {
+        bannerContent = content
+        mAdapter = HomeAdapter(bannerContent as ArrayList<HomePageSlide.DataBean>?, unitContent as ArrayList<HomePageUnits.DataBean>?)
+
+//        mAdapter = HomeAdapter(bannerContent as ArrayList<HomePageSlide.DataBean>?)
+        recyclerView_home.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        recyclerView_home.adapter = mAdapter
+    }
+
+    override fun toView() {
+    }
+
 
     fun newInstance(): HomeFragment {
         val args = Bundle()
@@ -39,14 +73,13 @@ class HomeFragment : BaseMainFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        bannerContent.add("http://202.111.178.10:28085/upload/image/201711151645000412863_thumb.jpg")
-        bannerContent.add("http://202.111.178.10:28085/upload/image/201711151645000412863_thumb.jpg")
-        bannerContent.add("http://202.111.178.10:28085/upload/image/201711151645000412863_thumb.jpg")
-        bannerContent.add("http://202.111.178.10:28085/upload/image/201711151645000412863_thumb.jpg")
-        bannerContent.add("http://202.111.178.10:28085/upload/image/201711151645000412863_thumb.jpg")
+        DaggerHomeComponent.builder().homeModule(HomeModule(this))
+                .build()
+                .inject(this)
 
-        mAdapter = HomeAdapter(bannerContent)
-        recyclerView_home.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        recyclerView_home.adapter = mAdapter
+
+        presenter.getUnit()
+
+
     }
 }

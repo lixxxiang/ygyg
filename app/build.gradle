@@ -28,6 +28,10 @@ android {
             jniLibs.srcDir 'libs'
         }
     }
+
+    kapt {
+        generateStubs = true
+    }
 }
 
 dependencies {

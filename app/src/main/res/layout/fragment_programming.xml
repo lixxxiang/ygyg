@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/programming_layout"
     tools:context="com.example.lixiang.dailypic2_android.view.fragment.classify.ProgrammingFragment">
 
 
@@ -14,15 +15,34 @@
     <RelativeLayout
         android:id="@+id/programming_header"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="55dp"
         android:background="#000000"
         android:alpha="0.8">
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
-        android:alpha="0.1"
-        android:background="@color/colorPrimary">
+
+        <Button
+            android:id="@+id/programming_back"
+            android:layout_width="10dp"
+            android:layout_height="17dp"
+            android:background="@drawable/programming_back"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"/>
+        <ImageView
+            android:id="@+id/search_background"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/search_background"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/search_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/programming_title"
+            android:textColor="#9B9B9B"
+            android:textSize="12dp"
+            android:layout_marginStart="60dp"/>
+
     </RelativeLayout>
 </RelativeLayout>
